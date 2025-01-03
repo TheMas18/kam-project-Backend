@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import com.sb.kam.exception.ResourceNotFoundException;
 import com.sb.kam.model.CallFrequency;
+import com.sb.kam.model.Interaction;
+import com.sb.kam.model.InteractionType;
 import com.sb.kam.model.Restaurant;
 import com.sb.kam.model.Status;
 import com.sb.kam.repository.RestaurantRepository;
@@ -198,4 +200,16 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 		return counts;
 	}
+
+//	@Override
+//	public long getOrderCountLastMonth() {
+//		LocalDate lastMonth = LocalDate.now().minusMonths(1);
+//		return restaurantRepository.countOrdersLastMonth(lastMonth);
+//	}
+//
+//	@Override
+//	public long getInteractionCountLastMonth() {
+//		LocalDate lastMonth = LocalDate.now().minusMonths(1);
+//		return restaurantRepository.countInteractionsLastMonth(lastMonth);
+//	}
 }

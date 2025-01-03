@@ -34,6 +34,10 @@ public interface RestaurantService {
 
 	List<Restaurant> getPendingFollowUps();
 
+//	long getOrderCountLastMonth();
+//
+//	long getInteractionCountLastMonth();
+
 	long getTotalRestaurants();
 
 	long getTotalContacts();

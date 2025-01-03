@@ -39,4 +39,13 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
     @Query("SELECT COUNT(r) FROM Restaurant r WHERE r.currentStatus = 'INACTIVE'")
     long countInactiveRestaurants();
+
+//    // Query to count orders in the last month for a restaurant
+//    @Query("SELECT COUNT(i) FROM Interaction i WHERE  i.interactionType = 'ORDER' AND i.dateOfInteraction > :lastMonth")
+//    long countOrdersLastMonth(LocalDate lastMonth);
+//
+//    // Query to count all interactions in the last month for a restaurant
+//    @Query("SELECT COUNT(i) FROM Interaction i WHERE   i.dateOfInteraction > :lastMonth")
+//    long countInteractionsLastMonth(LocalDate lastMonth);
+
 }

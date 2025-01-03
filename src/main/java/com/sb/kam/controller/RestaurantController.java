@@ -165,10 +165,11 @@ public class RestaurantController {
 		counts.put("totalContacts", restaurantService.getTotalContacts());
 		counts.put("totalInteractions", restaurantService.getTotalInteractions());
 		counts.put("totalOrders", restaurantService.getTotalOrders());
+
 		return new ResponseEntity<>(counts, HttpStatus.OK);
 	}
 
-	//get list of restaurants having pending followups
+	// get list of restaurants having pending followups
 	@GetMapping("/pendingFollowUps")
 	public ResponseEntity<List<Restaurant>> getPendingFollowUps() {
 		List<Restaurant> pendingFollowUps = restaurantService.getPendingFollowUps();
@@ -176,10 +177,25 @@ public class RestaurantController {
 		return new ResponseEntity<>(pendingFollowUps, HttpStatus.OK);
 	}
 
-	//get count of restaurants,contacts,interactions and order
+	// get count of restaurants,contacts,interactions and order
 	@GetMapping("/statusCounts")
 	public ResponseEntity<Map<String, Long>> getRestaurantStatusCounts() {
 		Map<String, Long> counts = restaurantService.getRestaurantStatusCounts();
 		return ResponseEntity.ok(counts);
 	}
+
+//	// Get Order count for the last month
+//	@GetMapping("/orderCountLastMonth")
+//	public ResponseEntity<Long> getOrderCountLastMonth() {
+//		Long orderCount = restaurantService.getOrderCountLastMonth();
+//		return ResponseEntity.ok(orderCount);
+//	}
+//
+//	// Get interaction count for the last month
+//	@GetMapping("/interactionCountLastMonth")
+//	public ResponseEntity<Long> getInteractionCountLastMonth() {
+//		Long interactionCount = restaurantService.getInteractionCountLastMonth();
+//		return ResponseEntity.ok(interactionCount);
+//	}
+
 }

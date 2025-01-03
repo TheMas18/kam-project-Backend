@@ -46,7 +46,6 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public Restaurant getRestaurantById(Long id) {
-		// TODO Auto-generated method stub
 		return restaurantRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Restaurant not found with the given id :" + id));
 	}
@@ -68,7 +67,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		if (restaurant == null) {
 			throw new ResourceNotFoundException("Restaurant not found with id: " + id);
 		}
-		CallFrequency callFrequency = CallFrequency.valueOf(newCallFrequency.toUpperCase()); // Converts string to enum
+		CallFrequency callFrequency = CallFrequency.valueOf(newCallFrequency.toUpperCase()); 
 		restaurant.setCallFrequency(callFrequency);
 		return restaurantRepository.save(restaurant);
 	}
@@ -150,7 +149,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		// Check if they have more than or equal to 3 orders in the last month
 		for (Restaurant restaurant : allRestaurantsWithOrders) {
 			int orderCount = restaurant.getOrderCountLastMonth();
-			if (orderCount >= 3) {
+			if (orderCount >= 2) {
 				wellPerformingRestaurants.add(restaurant);
 			}
 		}
